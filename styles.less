@@ -91,7 +91,9 @@ a {text-decoration: none;}
     }     
     .home, header, .eff_ul {padding: 30px 10px;}    
     .eff_numbers_txt {align-self: flex-start;}
-    .eff_ul>div {font-size: calc(18px + (36-18)*((100vw - 320px)/(1200 - 320)));}
+    .eff_ul {
+       & div {font-size: calc(18px + (36-18)*((100vw - 320px)/(1200 - 320)));};
+    }
     .priv_wrap2{padding-right: 0;}      
 }
 @media screen and (max-width:720px) {
