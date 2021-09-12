@@ -1,0 +1,104 @@
+.priv {
+    display: grid;
+    grid-template: 1fr / 1fr 5fr;
+    grid-template-areas: 
+     "priv_wrap1 priv_wrap2"    ;
+   
+}
+.priv_wrap1 {
+    grid-area: priv_wrap1;
+    display: grid;
+    grid-template: auto repeat(3, 1fr) / minmax(100px, 1fr);
+    grid-template-areas: 
+    "priv_h2_itm1"
+    "priv_iconPhone"
+    "priv_iconCup"
+    "priv_icon50"
+    ;
+    align-items: center;
+}
+.priv_wrap2 {
+    grid-area: priv_wrap2;
+    background: linear-gradient(132deg, @back_color 80%, rgba(93, 95, 255, 0) 92%);
+    display: grid;
+    grid-template: auto repeat(3, 1fr) / 3fr minmax(1fr,1.6fr);
+    grid-template-areas: 
+    "priv_h2_itm2 rocket"
+    "priv_textPhone rocket"
+    "priv_textCup rocket"
+    "priv_text50 rocket"
+    ;
+    padding-right: @margin_lf_rt;
+}
+.priv_h2_itm1 {
+    grid-area: priv_h2_itm1;
+    justify-self: end;
+    color: @back_color;    
+}
+.priv_h2_itm2 {
+    grid-area: priv_h2_itm2;
+    color:@text_color;     
+}
+.priv_h2_itm1, .priv_h2_itm2 {   
+    font-size: @h2;
+}
+.priv_iconPhone {
+    grid-area: priv_iconPhone;
+    max-width: 60px;
+    width: 100%; 
+}
+.priv_textPhone {
+    grid-area: priv_textPhone;  
+}
+.priv_iconCup {
+    grid-area: priv_iconCup;
+    max-width: 80px;
+    width: 100%;
+    padding-left: 13px; 
+}
+.priv_textCup {
+    grid-area: priv_textCup;
+}
+.priv_icon50 {
+    grid-area: priv_icon50;
+    max-width: 80px;
+    width: 100%;    
+}
+.priv_text50 {
+    grid-area: priv_text50;
+}
+.rocket {
+    grid-area: rocket;
+    justify-self: end;
+    align-self: flex-end;
+    transition-property: all;
+    transition-duration: 3s;  
+}
+.rocket:hover {
+    animation-name: anime_rocket1;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    transform: translateY(-200%);
+    opacity: 0;
+    transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    position: relative;       
+}
+.imgRocket {
+    max-width: 170px;
+    width: 100%;    
+}
+.rocket:hover::before {
+    content: 'hi,Elon!\0a\0a       \1F47D';
+    white-space: pre;
+    position: absolute;
+    top:18%;
+    left:29%;
+}
+.priv_iconPhone, .priv_iconCup, .priv_icon50 {
+    justify-self: center;    
+}
+.priv_textPhone, .priv_textCup, .priv_text50 {
+    color:@text_color;
+    font-size: @h3;
+    align-self: center;
+}

@@ -1,0 +1,143 @@
+@back_color:#5D5FFF;
+@btn_color:#243AFF;
+@btn_color_shadow:#0619c0;
+@back_light:#FFF382;
+@text_color:white;
+@iconColor:#36389a;
+@margin_lf_rt:50px;
+@margin_tp_bt:30px;
+@text_s:24px;
+@text_b:144px;
+@h1:68px;
+@h2:46px;
+@h3:34px;
+html {scroll-behavior: smooth;}
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+a {text-decoration: none;}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
+@import url(./style/header.less);
+@import url(./style/home.less);
+@import url(./style/home_button.less);
+@import url(./style/eff.less);
+@import url(./style/menu_nav.less);
+@import url(./style/priv.less);
+@import url(./style/contacts.less);
+@import url(./style/footer.less);
+@import url(./style/up_link.less);
+@media screen and (max-width:1260px) {
+    .home_h1 {font-size: calc(40px + (60 - 40)*((100vw - 320px)/ (1200 - 320)));} 
+    .eff_numbers_big {font-size: calc(70px + (100- 90)*((100vw - 320px)/ (1200 - 320)));}
+    .priv_textPhone, .priv_textCup, .priv_text50 {font-size: calc(18px + (36- 18)*((100vw - 320px)/ (1200 - 320)));}
+    .eff {display:block}   
+    .eff_ul {
+        grid-template: 0.5fr 150px repeat(3, 110px) / 0.1fr 1fr;
+        grid-template-areas:
+        "eff_ul_img eff_ul_img"
+        "eff_ul_h3 eff_ul_h3"
+        "li_mark1 eff_ul_li1"
+        "li_mark2 eff_ul_li2"
+        "li_mark3 eff_ul_li3"
+        ;
+    }
+    .eff_numbers {
+        grid-template: repeat(4, auto) / auto auto;
+        grid-auto-rows: auto;
+        grid-template-areas:
+        "eff_n1 eff_n2"
+        "eff_t1 eff_t2"
+        "eff_n3 eff_n4"
+        "eff_t3 eff_t4"       
+        ;
+    }
+    .imgRocket {display:none;} 
+    .home {
+        grid-template: auto auto auto / 1fr;
+        grid-template-areas:         
+        "home_h1"
+        "home_formuls"
+        "home_btn"
+        ;
+        justify-items: center;
+        text-align: center;
+    }
+    .home_anime {display:none;}
+    .home_h1, .home_formuls {margin:0;}    
+}
+@media screen and (max-width:850px) {
+    .lnk {display:none;}
+    .menu_nav_btn {display:inline-block;}
+    header {
+        grid-template:auto / 0.3fr 2fr 2.7fr;
+        grid-template-areas: 
+        "logo logo_name menu_nav_btn"
+        ;
+    }
+    .eff_numbers {
+        grid-template: repeat(8, auto) / auto;
+        grid-auto-rows: auto;
+        grid-template-areas:
+        "eff_n1"
+        "eff_t1"
+        "eff_n2"
+        "eff_t2"
+        "eff_n3"
+        "eff_t3"
+        "eff_n4"
+        "eff_t4"
+        ;
+    }     
+    .home, header, .eff_ul {padding: 30px 10px;}    
+    .eff_numbers_txt {align-self: flex-start;}
+    .eff_ul>div {font-size: calc(18px + (36-18)*((100vw - 320px)/(1200 - 320)));}
+    .priv_wrap2{padding-right: 0;}      
+}
+@media screen and (max-width:720px) {
+    header {
+        font-size: calc(16px + (20- 16)*((100vw - 320px)/ (1920 - 320)));
+    }
+    .priv_h2_itm1, .priv_h2_itm2 {
+        font-size: calc(28px + (46- 38)*((100vw - 320px)/ (1920 - 320)));
+    }
+    .contacts {margin:20px 0;}
+}
+@media screen and (max-width:1200px) {
+    .contacts {
+        grid-template: 1fr repeat(2, 0.2fr) / 1fr;
+        grid-template-areas: 
+            "contacts_img"
+            "contacts_10byn"
+            "contacts_20byn"            
+        ;
+    }
+    .contacts_wrap1 {
+        grid-template: 1fr 0.3fr 0.3fr / 1fr;
+        grid-template-areas:
+            "contacts_form"
+            "contacts_location"
+            "contacts_icons"            
+        ;
+    }
+    .icons_wrap {
+        justify-content: space-evenly;
+    }
+    .cont_txt_bold {font-size:small;}
+    .byn20_name, .byn10_name {
+        margin: 10px 0;
+        padding: 0;        
+    }    
+}
+@media screen and (max-width:390px) {
+    .contacts_form, .contacts_icons, .contacts_location {
+        & h3 {
+            font-size: 30px;
+        }
+    }    
+}
+@media screen and (max-width:570px) {
+    .home_formuls {
+        font-size: calc(70px + (100-90)*((100vw - 320px)/(1200 - 320)));
+    }
+}

@@ -1,0 +1,16 @@
+html {
+    scroll-behavior: smooth;
+}
+.upScroll {
+    position: fixed;
+    right: 10px;
+    padding: 0 6px;  
+    font-size: 90px;
+    text-align: center;
+    color: @back_light;   
+    transform:rotate(90deg);
+    transition: transform 80ms ease-in;
+    pointer-events: all;
+    top: calc(100vh - 6rem);
+    z-index: 1;   
+}

@@ -1,0 +1,98 @@
+.menu_nav_btn {
+  position: relative;
+  width: 100px;
+  min-width: 80px;    
+  display: none;
+  grid-area: menu_nav_btn;
+  justify-self: end;
+  z-index: 1;
+}  
+.menu_nav_btn .nav_btn {
+  border-radius: 2px;
+  position: relative;
+  background: #36389a;
+  height: 40px;  
+  box-shadow: 4px 4px 20px -2px rgba(0,0,0,.35);
+  transition: all .4s;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & i {
+    display: block;
+    height: 3px;
+    width:70%;
+    margin: 5px 5px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: @text_color;
+    transition: 500ms;
+    transform-origin: right center;
+  }
+}  
+.menu_nav_btn:hover .nav_btn{
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 5px -1px rgba(0,0,0,.35);
+ }
+ .menu_nav_btn:hover:active .nav_btn{
+  transform: translateY(10px);
+  box-shadow: 0px -1px 2px 0px rgba(0,0,0,.35);
+ }  
+ .menu_nav_btn>input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+  height: 40px;
+  margin: 0;
+}  
+#toggle:checked ~ul {    
+  display: none;
+  transition: all .4s ease-out;
+}  
+.menu_nav_btn ul {
+  position: absolute;
+  padding-left: 0;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style: none;
+  overflow: hidden;
+  text-align: right;    
+  text-align: center;
+  transition: all .4s ease-out;      
+}
+.menu_nav_btn ul li {
+  border-radius: 2px;
+  position: relative;
+  display: inline-block;
+  margin-left: 35px;
+  line-height: 1.5;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 2px;
+  background-color: rgb(99, 158, 190);
+  transition: background-color 3s;
+  box-shadow: 2px 2px 10px -2px rgba(0,0,0,.35);
+}  
+.menu_nav_btn ul li:hover {
+  background: rgb(40, 47, 64);
+  transition: background-color .45s;
+}  
+.menu_nav_btn ul a {
+  display: block;
+  color: ivory;   
+  font-size: 12px;
+  font-weight: 200;
+  text-decoration: none;
+  transition: color .3s;
+}
+.icons_name, .location_name {
+  font-size: @h3;
+}

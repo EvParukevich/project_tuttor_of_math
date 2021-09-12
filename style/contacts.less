@@ -1,0 +1,47 @@
+.contacts {
+    display: grid;
+    grid-template: 1fr / repeat(3,1fr);
+    grid-template-areas: 
+        "contacts_10byn contacts_img contacts_20byn"        
+    ;
+    justify-items: center;
+    align-items: center;
+    margin: @margin_tp_bt @margin_lf_rt;
+}
+.contacts_10byn {
+    grid-area: contacts_10byn;    
+}
+.contacts_img {
+    grid-area: contacts_img;
+    width: 100%;
+    max-width: 500px;    
+    align-self: center;
+}
+.contacts_20byn {
+    grid-area: contacts_20byn;    
+}
+
+.contactsEllipse-mixin() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: @back_color;
+    border-radius: 38px;    
+    color:@back_light;
+    text-align: center;
+    max-width: 500px;
+    min-width: 280px;
+    width: 99%;
+    height: 100%;
+    font-weight: bold;
+    font-size: 70px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+.byn20_name, .byn10_name {
+    .contactsEllipse-mixin
+}
+.cont_txtByn {    
+    text-align: center;
+    font-size: @h3;
+}

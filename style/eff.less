@@ -1,0 +1,99 @@
+.eff {
+    display: grid;
+    grid-template-rows: 1fr 1.5fr;
+    grid-template-areas: 
+        "eff_numbers"
+        "eff_ul"
+    ;    
+}
+.eff_numbers {
+    grid-area: eff_numbers;
+    display: grid;
+    grid-template: auto auto / repeat(4, auto);
+    justify-items: center;
+    align-items: center;
+    grid-template-areas:
+     "eff_n1 eff_n2 eff_n3 eff_n4"
+     "eff_t1 eff_t2 eff_t3 eff_t4"
+    ;    
+}
+.eff_n1 {
+    grid-area: eff_n1; 
+ }
+ .eff_n2 {
+     grid-area: eff_n2;
+ }
+ .eff_n3 {
+     grid-area: eff_n3;
+ }
+ .eff_n4 {
+     grid-area: eff_n4;
+ }
+ .eff_t1 {
+     grid-area: eff_t1;
+ }
+ .eff_t2 {
+     grid-area: eff_t2;
+ }
+ .eff_t3 {
+     grid-area: eff_t3;
+ }
+ .eff_t4 {
+     grid-area: eff_t4;
+ }
+.eff_numbers_txt {
+    font-size: @h3;
+    color: @btn_color_shadow;
+    text-align: center;
+    margin: 0;
+}
+.eff_numbers_big {
+    font-size: @text_b;
+    color: @back_color;
+    font-weight: 600;
+}
+.eff_ul {
+    grid-area: eff_ul;
+    display: grid;
+    grid-template: repeat(4, auto) / 0.1fr 1fr 1fr;
+    grid-template-areas:
+     "eff_ul_h3 eff_ul_h3 eff_ul_img"
+     "li_mark1 eff_ul_li1 eff_ul_img"
+     "li_mark2 eff_ul_li2 eff_ul_img"
+     "li_mark3 eff_ul_li3 eff_ul_img"
+    ;
+    background-color: @back_color;
+    padding: @margin_tp_bt @margin_lf_rt;
+    color: @text_color;
+    font-size: @h3;
+    align-items: center;
+}
+.eff_ul_h3 {
+    grid-area: eff_ul_h3;
+    font-size: @h2;    
+} 
+.eff_ul_li1 {
+    grid-area: eff_ul_li1;
+}
+.eff_ul_li2 {
+    grid-area: eff_ul_li2;
+}
+.eff_ul_li3 {
+    grid-area: eff_ul_li3;
+}
+.li_mark1 {
+    grid-area: li_mark1;
+}
+.li_mark2 {
+    grid-area: li_mark2;
+}
+.eff_ul_img {
+    grid-area: eff_ul_img;
+    width: 100%;
+    max-width: 450px;
+    justify-self: center;
+    align-self: center;
+}
+.eff_ul_li1, .eff_ul_li2, .eff_ul_li3, .li_mark1, .li_mark2, .li_mark3 {
+    padding-bottom: @margin_tp_bt;
+}

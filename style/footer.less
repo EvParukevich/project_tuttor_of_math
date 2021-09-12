@@ -1,0 +1,73 @@
+.contacts_wrap1 {    
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr;
+    grid-template-areas: 
+        "contacts_icons contacts_form contacts_location"
+    ;
+    background-color: @back_color;
+    justify-items: center;
+}
+.contacts_location {
+    grid-area: contacts_location;
+    box-sizing: border-box;
+    & div {
+        clip-path: polygon(50% 0%, 100% 21%, 90% 21%, 90% 100%, 10% 100%, 10% 21%, 0 21%);     
+    }    
+}
+.contacts_icons {
+    grid-area: contacts_icons;          
+}
+.contacts_icons, .contacts_location {
+    text-align: center;
+    color:@back_light;    
+    & a, & p {
+        color:@text_color;
+        font-weight: bold;
+        font-size: @h3;        
+    }
+    & h3 {text-transform: uppercase;}
+}
+.contacts_form {
+    grid-area: contacts_form;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+    text-align: center;
+    background: @back_color;    
+    color:@text_color;    
+    padding-bottom: 15px;    
+    font-size: @h3;
+    & h3 {
+        color:@back_light;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    box-sizing: border-box;
+}
+[type="text"], #tel, .formSubmit {
+    border-radius: 8px;    
+    align-self: center;
+    justify-self:flex-start;
+    margin-top: @margin_tp_bt;    
+    height: 70px;
+    font-size: @h3;
+    color: @iconColor;
+    width: 90%;
+}
+.formSubmit {
+    color:@text_color;
+    background-color: @btn_color_shadow;    
+}
+.icons_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.icon_viber, .icon_tg, .icon_inst {
+    width: 70px;
+    height: 80px;
+}
+.cont_txt_bold {
+    font-weight: 900;
+    color:@text_color;
+    justify-self: center;
+}
