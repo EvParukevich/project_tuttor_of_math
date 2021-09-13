@@ -15,7 +15,12 @@
     }    
 }
 .contacts_icons {
-    grid-area: contacts_icons;          
+    grid-area: contacts_icons;
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    & a:hover{
+        color:@back_light;
+    }
 }
 .contacts_icons, .contacts_location {
     text-align: center;
