@@ -119,9 +119,10 @@
     right: -5%;
     top: -10%;
     animation-name: home_anime_circle;
-    animation-delay: 4s;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;    
+    animation-delay: 5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    z-index: 1;    
 }
 @keyframes home_anime_circle {
     0% {
@@ -129,8 +130,7 @@
         mix-blend-mode: color-burn;        
     }
     100% {
-        background: radial-gradient(50% 50% at 50% 50%, #c36464 83.48%, rgba(143, 31, 157, 0) 100%);
-        z-index: 3;     
+        background: none;             
     }
 }
 .home_anime_head {
