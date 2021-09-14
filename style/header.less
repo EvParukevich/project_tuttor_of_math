@@ -13,10 +13,12 @@ header {
     grid-area: logo;
     justify-self: start;
     align-self: center;
+    filter: drop-shadow(2px 4px 6px black);
 }
 .logo_name {
     grid-area: logo_name;
-    align-self: center;    
+    align-self: center;
+    padding-left: 5px;    
 }
 .lnk_eff {
     grid-area: lnk_eff;
@@ -32,8 +34,13 @@ header {
     align-self: center;
     color:@text_color;    
     padding:10px 0;
+    filter: drop-shadow(2px 4px 6px black);
+    box-sizing: border-box;
 }
 .lnk_cont:hover, .lnk_eff:hover, .lnk_priv:hover {
-    border-bottom: 3px solid @text_color;
+    border-bottom: 3px solid @text_color;    
 }
-.tel {color:@text_color;}
+.tel {
+    color:@text_color;
+    filter: drop-shadow(2px 4px 6px black);
+}

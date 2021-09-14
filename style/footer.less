@@ -11,7 +11,8 @@
     grid-area: contacts_location;
     box-sizing: border-box;
     & div {
-        clip-path: polygon(50% 0%, 100% 21%, 90% 21%, 90% 100%, 10% 100%, 10% 21%, 0 21%);     
+        clip-path: polygon(50% 0%, 100% 21%, 90% 21%, 90% 100%, 10% 100%, 10% 21%, 0 21%);
+        filter: hue-rotate(71deg);     
     }    
 }
 .contacts_icons {
@@ -45,7 +46,7 @@
     & h3 {
         color:@back_light;
         font-weight: bold;
-        text-transform: uppercase;
+        text-transform: uppercase;        
     }
     box-sizing: border-box;
 }
@@ -58,6 +59,9 @@
     font-size: @h3;
     color: @iconColor;
     width: 90%;
+    padding-left: 10px;
+    box-sizing: border-box;
+    filter: drop-shadow(2px 4px 6px black);
 }
 .formSubmit {
     color:@text_color;
@@ -70,6 +74,9 @@
 .icon_viber, .icon_tg, .icon_inst {
     width: 70px;
     height: 80px;
+}
+.icon_viber:hover, .icon_tg:hover, .icon_inst:hover{
+    filter: drop-shadow(2px 4px 6px black);
 }
 .cont_txt_bold {
     font-weight: 900;

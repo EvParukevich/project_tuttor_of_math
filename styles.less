@@ -70,10 +70,14 @@ a {text-decoration: none;}
     .lnk {display:none;}
     .menu_nav_btn {display:inline-block;}
     header {
-        grid-template:auto / 0.3fr 2fr 2.7fr;
+        grid-template:auto / 0.3fr 2fr 1fr;
         grid-template-areas: 
         "logo logo_name menu_nav_btn"
         ;
+        & .logo {
+            width: 53px;
+            height: 53px;
+        }
     }
     .eff_numbers {
         grid-template: repeat(8, auto) / auto;
@@ -122,9 +126,6 @@ a {text-decoration: none;}
             "contacts_icons"            
         ;
     }
-    .icons_wrap {
-        justify-content: space-evenly;
-    }
     .cont_txt_bold {font-size:small;}
     .byn20_name, .byn10_name {
         margin: 10px 0;
@@ -132,6 +133,9 @@ a {text-decoration: none;}
     }    
 }
 @media screen and (max-width:390px) {
+    .icons_wrap {
+        filter: drop-shadow(2px 4px 6px black);
+    }
     .contacts_form, .contacts_icons, .contacts_location {
         & h3 {
             font-size: 30px;
