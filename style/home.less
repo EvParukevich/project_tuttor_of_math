@@ -1,10 +1,11 @@
 .home {
     display: grid;
-    grid-template: auto auto auto / 1fr 0.9fr;
+    grid-template: auto auto auto auto / 1fr 0.9fr;
     grid-template-areas: 
         "home_h1 home_anime"
         "home_formuls home_anime"
-        "home_btn home_anime"
+        "home_btn_forForm home_anime"
+        "home_btn_forQuiz home_btn_forQuiz"
     ;
     background: linear-gradient(198.25deg, @back_color 68.79%, rgba(93, 95, 255, 0) 99.45%);
     color:@text_color;
@@ -98,11 +99,18 @@
         }
     }
 }
-.home_btn {
-    grid-area: home_btn;
+.home_btn_forForm {
+    grid-area: home_btn_forForm;
     font-size: text_s;
     color: @text_color;    
     background-color: @btn_color;
+}
+.home_btn_forQuiz {
+    grid-area: home_btn_forQuiz;
+    font-size: text_s;
+    color: @text_color;    
+    background-color: @btn_color;
+    margin-top: 20px;
 }
 .home_anime {
     grid-area: home_anime;
