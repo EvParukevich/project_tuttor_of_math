@@ -1,2 +1,6 @@
-/* import {isCheckboxOrRadio, form, retrieveFormValue } from './submitForm';
-form.addEventListener('submit', retrieveFormValue) */
+import { form, retrieveFormValue } from './submitForm.js';
+import { scrollUp } from './scrollUp.js';
+
+form.addEventListener('submit', retrieveFormValue)
+
+document.addEventListener('DOMContentLoaded', scrollUp);

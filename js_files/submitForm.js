@@ -19,7 +19,6 @@ form.addEventListener('submit', retrieveFormValue) */
 
 const isCheckboxOrRadio = type => ['checkbox', 'radio'].includes(type);
 
-// const {form} = document.forms;
 const form = document.getElementById('contacts_form');
 
 function retrieveFormValue(event) {
@@ -41,4 +40,5 @@ function retrieveFormValue(event) {
     console.log('submitObj', values);
 }
 
+export {retrieveFormValue, isCheckboxOrRadio, form};
 form.addEventListener('submit', retrieveFormValue)
