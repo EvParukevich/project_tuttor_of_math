@@ -1,6 +1,5 @@
 import {questions} from './questions.js';
 
-
 // find elements
 const headerContainer = document.querySelector('#header');
 const listContainer = document.querySelector('#list');
@@ -17,33 +16,45 @@ submitBtn.onclick = checkAnswer;
 // function declaration clear HTML 
 
 function clearPage(){
-	headerContainer.innerHTML = '';
-	listContainer.innerHTML = '';
+	headerContainer.textContent = '';
+	listContainer.textContent = '';
 }
 
 // function declaration show question
 
 function showQuestion(){
-	const headerTemplate = `<h2 class="title">%title%</h2>`
-	const title = headerTemplate.replace('%title%', questions[questionIndex]['question']);
 
-	headerContainer.innerHTML = title;
-	
+// new headerTemplate
+
+	const headerTemplate = document.createElement('h2');
+	const title = questions[questionIndex]['question'];
+
+	headerTemplate.classList.add('title');	
+	headerTemplate.textContent = title;
+
+	headerContainer.append(headerTemplate);	
+
 	for (let [answerIndex, answerText] of questions[questionIndex]['answers'].entries()){
-		
-		const questionTemplate = 
-		`<li>
-			<label>
-				<input value="%number%" type="radio" class="answer" name="answer" />
-				<span>%answer%</span>
-			</label>
-		</li>`
-		let answerHTML = questionTemplate
-										.replace('%answer%', answerText)
-										.replace('%number%', answerIndex);
-		
-		listContainer.innerHTML += answerHTML;		
+
+	// новый список
+
+	const questionTemplate = document.createElement('li');
+	const labelTemplate = document.createElement('label');
+	const inputTemplate = document.createElement('input');
+	const spanTemplate = document.createElement('span');
+
+	inputTemplate.setAttribute('type', 'radio');
+	inputTemplate.classList.add('answer');
+
+	spanTemplate.textContent = answerText;
+	inputTemplate.setAttribute('value', ++answerIndex);
+
+	listContainer.append(questionTemplate);
+	questionTemplate.append(labelTemplate);
+	labelTemplate.append(inputTemplate, spanTemplate);
+	
 	}
+
 }
 
 function checkAnswer(){
@@ -77,40 +88,51 @@ function checkAnswer(){
 function showResults(){	
 
 // шаблон
-	const resultsTemplate = `
-			<h2 class="title">%title%</h2>
-			<h3 class="summary">%message%</h3>
-			<p class="result">%result%</p>
-	`;
 
-	let title, message;
+	const resultsTitle = document.createElement('h2');
+	const resultsSummary = document.createElement('h3');
+	const resultMessage = document.createElement('p');
+
+	resultsTitle.classList.add('title');
+	resultsSummary.classList.add('summary');
+	resultMessage.classList.add('result');
+
+	// let title, message;
 
 	if (score === questions.length){
 
-		title = 'Congratulations!!';
-		message = 'You answered all questions correctly';
+		resultsTitle.textContent = 'Congratulations!!';
+		resultsSummary.textContent = 'You answered all questions correctly';
 
 	} else if ((score * 100) / questions.length >= 50) {
 
-		title = 'Not bad!';
-		message = 'You gotted more 50%';
+		resultsTitle.textContent = 'Not bad!';
+		resultsSummary.textContent = 'You gotted more 50%';
 
 	} else {
 
-		title = 'Try more';
-		message = 'You have not enough';
+		resultsTitle.textContent = 'Try more';
+		resultsSummary.textContent = 'You have not enough';
 
 	}
-	// result
-	let result = `${score} of ${questions.length}`;
+	// result	
 
-	const finalMessage = resultsTemplate
-							.replace('%title%', title)
-							.replace('%message%', message)
-							.replace('%result%', result);
+	resultMessage.textContent = `${score} of ${questions.length}`;
 
-	headerContainer.innerHTML = finalMessage;
+	headerContainer.append(resultsTitle, resultsSummary, resultMessage);
+
+// форма для получения данных
+	const quizForm = document.createElement('form');
+	const inputName = document.createElement('input');
+	const inputPhone = document.createElement('input');
+	
+	quizForm.classList.add('quizForm');
+
+	quizForm.append(inputName, inputPhone);
+	headerContainer.append(quizForm);		
+
+// расфокусировка кнопки и перезагрузка
 	submitBtn.blur();
-	submitBtn.innerText = 'Restart';
+	submitBtn.textContent = 'Restart';
 	submitBtn.onclick = () => history.go();
 }

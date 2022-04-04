@@ -13,9 +13,7 @@ function retrieveFormValue(event) {
     }
 
     console.log('subObject', values);
-}
-
-form.addEventListener('submit', retrieveFormValue) */
+} */
 
 const isCheckboxOrRadio = type => ['checkbox', 'radio'].includes(type);
 
@@ -35,10 +33,8 @@ function retrieveFormValue(event) {
             values[name] = isCheckboxOrRadio(type) ? checked : value;
         }
     }
-
-    // history.go();
+    
     console.log('submitObj', values);
 }
 
 export {retrieveFormValue, isCheckboxOrRadio, form};
-form.addEventListener('submit', retrieveFormValue)
