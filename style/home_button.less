@@ -1,0 +1,44 @@
+.btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 10px 40px;       
+    font-weight: 600;
+    line-height: 30px;        
+    text-transform: uppercase;
+    background: @btn_color;
+    border-width: 0;
+    box-shadow: 5px 5px 0 @btn_color_shadow;
+    outline: none;
+    cursor: pointer;
+    transition: 1.5s;
+    max-width: 300px;
+    text-align: center;
+ }
+ .btn:before, .btn:after {
+    content: "";
+    position: absolute;
+    height: 100px;
+    left: -50%;
+    margin-top: -100px;
+    top: 50%;
+    width: 100%;
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: -1;
+    transform: scale(0);
+ }
+ .btn:before {
+    background: @back_light;
+    transition: .8s ease-out;
+ }
+ .btn:after {
+    transition: .4s ease-in .3s;
+ }
+ .btn:hover {
+    color: @btn_color;
+ }
+ .btn:hover:before, .btn:hover:after {
+    opacity: 1;
+    transform: scale(4);
+ }
