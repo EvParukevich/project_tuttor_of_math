@@ -45,6 +45,7 @@ function showQuestion(){
 
 	inputTemplate.setAttribute('type', 'radio');
 	inputTemplate.classList.add('answer');
+	inputTemplate.setAttribute('name', 'answer');
 
 	spanTemplate.textContent = answerText;
 	inputTemplate.setAttribute('value', ++answerIndex);
