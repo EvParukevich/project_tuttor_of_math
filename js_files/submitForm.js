@@ -34,7 +34,11 @@ function retrieveFormValue(event) {
         }
     }
     
-    console.log('submitObj', values);
+    localStorage.setItem('form', JSON.stringify(values));
+    localStorage.getItem('form');
+    
+    document.querySelector('#form').value = null;
+    document.querySelector('#tel').value = null;
 }
 
 export {retrieveFormValue, isCheckboxOrRadio, form};
