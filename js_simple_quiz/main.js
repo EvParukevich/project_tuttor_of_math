@@ -23,11 +23,19 @@ function showQuestion(){
 	// вопрос
 	const headerTemplate = document.createElement('h2');
 	const title = questions[questionIndex]['question'];
+	const cheatContainer = document.createElement('div');
+	const cheatBox = document.createElement('span');
 
 	headerTemplate.classList.add('title');	
 	headerTemplate.textContent = title;
+	cheatContainer.classList.add('cheat_container');
+	cheatContainer.textContent ='Взять подсказку';
+	cheatBox.classList.add('cheat_box');
+	cheatBox.textContent = questions[questionIndex]['correct'];
 
-	headerContainer.append(headerTemplate);	
+	cheatContainer.append(cheatBox);
+	headerContainer.append(headerTemplate, cheatContainer);
+
 
 	for (let [answerIndex, answerText] of questions[questionIndex]['answers'].entries()){
 
@@ -47,6 +55,14 @@ function showQuestion(){
 	listContainer.append(questionTemplate);
 	questionTemplate.append(labelTemplate);
 	labelTemplate.append(inputTemplate, spanTemplate);
+
+	cheatContainer.onclick = function(){
+		if (cheatBox.style.display === 'block') {
+			cheatBox.style.display = 'none';
+		} else {
+			cheatBox.style.display = 'block';
+		}
+	}
 	
 	}
 
