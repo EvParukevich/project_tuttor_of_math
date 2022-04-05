@@ -1,31 +1,26 @@
 import {questions} from './questions.js';
 
-// find elements
+// находим элементы
 const headerContainer = document.querySelector('#header');
 const listContainer = document.querySelector('#list');
 const submitBtn = document.querySelector('#submit');
 
-// test Variables  
+// создаём переменные  
 let score = 0; // score right answer
 let questionIndex = 0; // current question
-
 
 clearPage();
 showQuestion();
 submitBtn.onclick = checkAnswer;
-// function declaration clear HTML 
 
 function clearPage(){
 	headerContainer.textContent = '';
 	listContainer.textContent = '';
 }
 
-// function declaration show question
-
 function showQuestion(){
 
-// new headerTemplate
-
+	// вопрос
 	const headerTemplate = document.createElement('h2');
 	const title = questions[questionIndex]['question'];
 
@@ -36,8 +31,7 @@ function showQuestion(){
 
 	for (let [answerIndex, answerText] of questions[questionIndex]['answers'].entries()){
 
-	// новый список
-
+	// список ответов
 	const questionTemplate = document.createElement('li');
 	const labelTemplate = document.createElement('label');
 	const inputTemplate = document.createElement('input');
@@ -61,16 +55,15 @@ function showQuestion(){
 function checkAnswer(){
 	const checkedRadio = listContainer.querySelector('input[type="radio"]:checked');
 	
-
-// if answer didn't select then return
+	// Если вопрос не выбран расфокусить
 	if (!checkedRadio){
 		submitBtn.blur();
 		return
 	} 
-// number user answer
+	// выбраный ответ
 	const userAnswer = +checkedRadio.value;
 
-// checked if user answer = correct then score +1
+	// если верный, присвоить +1
 	if (userAnswer === questions[questionIndex]['correct']){
 		score++;
 	}	
@@ -88,52 +81,40 @@ function checkAnswer(){
 
 function showResults(){	
 
-// шаблон
-
 	const resultsTitle = document.createElement('h2');
 	const resultsSummary = document.createElement('h3');
 	const resultMessage = document.createElement('p');
+	const linkOnMain = document.createElement('a');
 
 	resultsTitle.classList.add('title');
 	resultsSummary.classList.add('summary');
 	resultMessage.classList.add('result');
-
-	// let title, message;
+	linkOnMain.classList.add('submit');
 
 	if (score === questions.length){
 
-		resultsTitle.textContent = 'Congratulations!!';
-		resultsSummary.textContent = 'You answered all questions correctly';
+		resultsTitle.textContent = 'Поздравляем!!!';
+		resultsSummary.textContent = 'Вы ответили на все вопросы правильно';
 
 	} else if ((score * 100) / questions.length >= 50) {
 
-		resultsTitle.textContent = 'Not bad!';
-		resultsSummary.textContent = 'You gotted more 50%';
+		resultsTitle.textContent = 'Неплохо!';
+		resultsSummary.textContent = 'Вы набрали больше 50%';
 
 	} else {
 
-		resultsTitle.textContent = 'Try more';
-		resultsSummary.textContent = 'You have not enough';
+		resultsTitle.textContent = 'Попробуйте ещё';
+		resultsSummary.textContent = 'Вы почти у цели';
 
 	}
-	// result	
 
-	resultMessage.textContent = `${score} of ${questions.length}`;
+	// результат
+	resultMessage.textContent = `${score} из ${questions.length}`;
 
-	headerContainer.append(resultsTitle, resultsSummary, resultMessage);
+	headerContainer.append(resultsTitle, resultsSummary, resultMessage);	
 
-// форма для получения данных
-	const quizForm = document.createElement('form');
-	const inputName = document.createElement('input');
-	const inputPhone = document.createElement('input');
-	
-	quizForm.classList.add('quizForm');
-
-	quizForm.append(inputName, inputPhone);
-	headerContainer.append(quizForm);		
-
-// расфокусировка кнопки и перезагрузка
+	// расфокусировка кнопки и перезагрузка
 	submitBtn.blur();
-	submitBtn.textContent = 'Restart';
+	submitBtn.textContent = 'Начать заново';
 	submitBtn.onclick = () => history.go();
 }
