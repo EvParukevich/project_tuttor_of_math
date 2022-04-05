@@ -110,8 +110,12 @@ function showResults(){
 
 	// результат
 	resultMessage.textContent = `${score} из ${questions.length}`;
+	linkOnMain.textContent = 'Вернуться на главную';
+	linkOnMain.setAttribute('href', '../index.html');
+	linkOnMain.classList.add('link_on_main');
 
 	headerContainer.append(resultsTitle, resultsSummary, resultMessage);	
+	document.querySelector('.quiz').append(linkOnMain);
 
 	// расфокусировка кнопки и перезагрузка
 	submitBtn.blur();
