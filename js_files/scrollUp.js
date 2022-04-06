@@ -1,6 +1,5 @@
-export function scrollUp (){
-    const upScroll = document.getElementById('upScroll');
-    // const upScroll = document.querySelector('.upScroll');
+function scrollUp (){
+    const upScroll = document.querySelector('.upScroll');
 
     upScroll.onclick = function() {
         window.scrollTo(pageXOffset, 0);
@@ -11,3 +10,5 @@ export function scrollUp (){
         upScroll.hidden = (pageYOffset < document.documentElement.clientHeight);
     });
 }
+
+export {scrollUp};
