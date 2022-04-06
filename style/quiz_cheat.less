@@ -1,0 +1,49 @@
+.cheat_container{
+    font-size: 20px;
+    font-weight: bold;
+    color: #0d6290;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  user-select: none;
+}
+
+.cheat_container:hover{
+    color: #129fea;
+    transition: .6s
+}
+
+.cheat_box{
+    background-color: rgba(248, 245, 166, 0.501);
+    padding: 13px 17px;
+    color: rgb(7, 116, 251);
+    font-weight: lighter;
+    border-radius: 8px;
+    position: absolute;
+    width: 47px;
+    font-size: 14px;    
+    margin-right:-140px;
+    top: -65px;
+    display: none;
+    
+}
+
+.cheat_box{
+    animation-fill-mode: forwards;
+    animation-name: move;
+    animation-duration: .6s;
+    animation-timing-function: ease
+}
+
+@keyframes move {
+    from{
+        transform: scale(0);
+        top: 15px;
+        opacity: .3
+    }
+    to{
+        transform: scale(1);
+        top: -55px;
+        opacity: 1
+    }
+}
