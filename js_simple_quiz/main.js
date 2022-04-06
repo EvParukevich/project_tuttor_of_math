@@ -23,6 +23,8 @@ function showQuestion(){
 	// вопрос
 	const headerTemplate = document.createElement('h2');
 	const title = questions[questionIndex]['question'];
+
+	// подсказка
 	const cheatContainer = document.createElement('div');
 	const cheatBox = document.createElement('span');
 
@@ -35,7 +37,6 @@ function showQuestion(){
 
 	cheatContainer.append(cheatBox);
 	headerContainer.append(headerTemplate, cheatContainer);
-
 
 	for (let [answerIndex, answerText] of questions[questionIndex]['answers'].entries()){
 
